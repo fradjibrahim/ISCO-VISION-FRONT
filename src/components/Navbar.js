@@ -2,10 +2,9 @@ import * as React from "react";
 import {AppBar, Toolbar, Typography, Menu, IconButton, MenuItem, Box} from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 
-const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-const pages = ['Products', 'About', 'Cart'];
-
-function Navbar(){
+function Navbar() {
+    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+    const pages = ['Products', 'About', 'Cart'];
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
@@ -14,7 +13,8 @@ function Navbar(){
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
-    return(
+
+    return (
         <AppBar position="static">
             <Toolbar>
                 <Typography variant="h6" component="div">
@@ -59,6 +59,6 @@ function Navbar(){
             </Box>
         </AppBar>
     );
-
 }
+
 export default Navbar;
