@@ -14,7 +14,7 @@ function App() {
           <Container>
               <Routes>
                   <Route index element={<Home/> } path='/'/>
-                  <Route index element={<ItemPage/>} path='/items'/>
+                  <Route index element={<ItemPage/>} path='/:items'/>
                   {/*<Route index element={ } path='/cart'/>*/}
                   {/*<Route index element={ } path='/checkout'/>*/}
                   {/*<Route index element={<NoPage/>} path='&'/>*/}
