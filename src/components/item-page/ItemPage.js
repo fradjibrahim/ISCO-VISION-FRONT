@@ -6,8 +6,17 @@ import { CartContext } from '../../context/cart'
 const ItemPage = () =>{
 
     const { cartItems, addToCart } = useContext(CartContext)
+    const context = useContext(CartContext)
+    console.log(context);
     const location = useLocation();
-    const { product } = location.state;
+    const { id, name, category, price, image } = location.state || {};
+    const product = {
+        id,
+        name,
+        category,
+        price,
+        image,
+    };
 
     if (!product) {
         return <Typography>Product not found</Typography>;

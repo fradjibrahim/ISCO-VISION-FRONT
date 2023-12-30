@@ -31,13 +31,19 @@ const Home = () => {
     // }, [])
 
 
-    function openItemPage(i){
-        const pathItem =  "/" + i.category
+    function openItemPage(item){
+        const pathItem =  `/${item}.category`
         
-        navigate(pathItem, {state:{product: i}});
+        navigate(pathItem, {
+            state:{
+                id: item.id,
+                name: item.name,
+                category: item.name,
+                price: item.price,
+                image: item.image
+        }});
     }
     return(
-        <CartProvider>
             <Container>
                 <Grid container spacing={3}>
                     {products.map((item) => (
@@ -62,9 +68,6 @@ const Home = () => {
 
                 </Grid>
             </Container>
-
-        </CartProvider>
-
 
         );
 }
