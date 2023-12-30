@@ -1,10 +1,17 @@
-import React from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import { useLocation } from 'react-router-dom';
 import {Box, Button, Container, Grid, MenuItem, Select, Typography} from "@mui/material";
-
+import { CartContext } from '../../context/cart'
 
 const ItemPage = () =>{
 
+    const { cartItems, addToCart } = useContext(CartContext)
+    const location = useLocation();
+    const { product } = location.state;
 
+    if (!product) {
+        return <Typography>Product not found</Typography>;
+    }
     return (
         <Container maxWidth="lg">
             <Grid container spacing={4}>
@@ -49,7 +56,7 @@ const ItemPage = () =>{
                     </Select>
 
                     {/* Add to Cart Button */}
-                    <Button variant="contained" color="primary" fullWidth sx={{ my: 2 }}>
+                    <Button onClick={() => product && addToCart(product)} variant="contained" color="primary" fullWidth sx={{ my: 2 }}>
                         Place in Cart
                     </Button>
                 </Grid>

@@ -4,8 +4,15 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Person2Icon from '@mui/icons-material/Person2';
 import { blue } from 'material-ui-colors';
+import { useNavigate } from 'react-router-dom';
+
 function Navbar() {
-    const pages = [{name: 'Soccer', path: 'soccer'}, {name: 'Basketball', path: '#news'}, , {name: 'Basketball', path: '#news'}, {name: 'Basketball', path: '#news'}, {name: 'Basketball', path: '#news'}, {name: 'Basketball', path: '#news'},{name: 'Courses', path: '#news'}];
+
+    const pages = [{name: 'Soccer', path: 'soccer'}, {name: 'Basketball', path: '#news'}, {name: 'Basketball', path: '#news'}, {name: 'Basketball', path: '#news'}, {name: 'Basketball', path: '#news'}, {name: 'Basketball', path: '#news'},{name: 'Courses', path: '#news'}];
+    const navigate = useNavigate();
+    const handleCartClick = () => {
+        navigate('/cart'); // Update this with your cart page route
+    };
 
     return (
         <div class="topnav">
@@ -20,8 +27,8 @@ function Navbar() {
             
             <div class="icon">
                 <SearchIcon color="action" sx={{ fontSize: 40 }}/>
-                <ShoppingCartIcon color="action" sx={{ fontSize: 40 }} />
-                <Person2Icon sx={{ fontSize: 40, color: blue[50] }} />
+                <ShoppingCartIcon color="action" sx={{ fontSize: 40 }} onClick={handleCartClick} />
+                <Person2Icon  sx={{ fontSize: 40, color: blue[50] }} />
             </div>
             
         </div>
