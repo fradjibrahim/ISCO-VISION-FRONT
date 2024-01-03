@@ -10,14 +10,19 @@ function Navbar() {
 
     const pages = [{name: 'Soccer', path: 'soccer'}, {name: 'Basketball', path: '#news'}, {name: 'Basketball', path: '#news'}, {name: 'Basketball', path: '#news'}, {name: 'Basketball', path: '#news'}, {name: 'Basketball', path: '#news'},{name: 'Courses', path: '#news'}];
     const navigate = useNavigate();
+
     const handleCartClick = () => {
-        navigate('/cart'); // Update this with your cart page route
+        navigate('/cart'); 
     };
+
+    const redirectToHome = () =>{
+        navigate('/')
+    }
 
     return (
         <div class="topnav">
             <div class="logo">
-                <a class="active" href="#home">Logo</a>
+             <img onClick={redirectToHome} style={{ width: '70px', height: '100px'}} src={require('../../assets/images/Group.png')}></img>
             </div>
             <div class="category">
                 {pages.map((item, index) => (
